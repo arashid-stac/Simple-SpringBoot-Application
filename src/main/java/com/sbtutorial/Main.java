@@ -46,6 +46,16 @@ public class Main {
         customerRepository.deleteById(id);
     }
 
+    @PutMapping("{customerId}")
+    public void updateCustomer(@PathVariable("customerId") Integer id,
+                               @RequestBody NewCustomerRequest request) {
+        Customer customer = new Customer();
+        customer.setName(request.name());
+        customer.setEmail(request.email());
+        customer.setAge(request.age());
+        customerRepository.save(customer);
+    }
+
 //    @GetMapping("/greet")
 //    public Greeting greet(){
 //        Person alli = new Person("Alli", 25, 1000.00);
