@@ -41,6 +41,11 @@ public class Main {
         customerRepository.save(customer);
     }
 
+    @DeleteMapping("{customerId}")
+    public void deleteCustomer(@PathVariable("customerId") Integer id) {
+        customerRepository.deleteById(id);
+    }
+
 //    @GetMapping("/greet")
 //    public Greeting greet(){
 //        Person alli = new Person("Alli", 25, 1000.00);
